@@ -1,28 +1,29 @@
 #include <iostream>
-using namespace std;
+
 #include "string.h"
 #include "mat.hpp"
 #include <iostream>
 #include <vector>
-
+using namespace std;
 namespace ariel
 {
     string mat(int a,int b,char c,char d){
-     
+     if (b % 2 == 0 || a % 2 == 0)
+        {
+            throw runtime_error("odd");
+        }
+          if (b < 0 || a < 0)
+        {
+            throw runtime_error("negative");
+        }
      int row=b;
      int median=row/2;
      int col=a;
      char s1=c;
-     char s2=d;string s="";
+     char s2=d;
+     std::string s;
      
-      if (row % 2 == 0 || col % 2 == 0)
-        {
-            throw runtime_error("odd");;
-        }
-         else if (row < 0 || col < 0)
-        {
-            throw runtime_error("negative");
-        }
+        
 
      
      vector<vector<char>> arr( row, vector<char>( col ) );
