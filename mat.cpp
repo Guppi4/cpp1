@@ -9,15 +9,22 @@ namespace ariel
 {
     string mat(int a,int b,char c,char d){
      
-     string s="";
-     if(a%2==0 || b%2==0){
-         return s;
-     }
      int row=b;
      int median=row/2;
      int col=a;
      char s1=c;
-     char s2=d;
+     char s2=d;string s="";
+     
+      if (row % 2 == 0 || col % 2 == 0)
+        {
+            throw runtime_error("odd");;
+        }
+         else if (row < 0 || col < 0)
+        {
+            throw runtime_error("negative");
+        }
+
+     
      vector<vector<char>> arr( row, vector<char>( col ) );
    
        
@@ -98,10 +105,15 @@ namespace ariel
         
      
             for (int i = 0; i<row; i++){
-                for (int j = 0; j<col; j++)
+                for (int j = 0; j<col; j++){
                     s +=arr[i][j];
+                    //cout << arr[i][j];
+                }  
+                    
                     s +="\n";
+                //cout << "\\n";
             }
+       
        return s; 
     }
 }
